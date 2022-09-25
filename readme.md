@@ -9,10 +9,12 @@ $ docker builer prune
 docker-compose up -d
 ```
 
-### Laravelインストール
+### Laravelインストールと設定
 ```
 [host]$ docker exec -it ukiukiwork_web bash
 [web]$ composer install
+[web]$ cp .env.example .env
+[web]$ php artisan key:generate
 ```
 
 ## プロジェクト作成(メモ)
