@@ -5,6 +5,8 @@ services:
       context: ./web
       dockerfile: Dockerfile
     image: ${APP_NAME}/web
+    environment:
+      - TZ=Asia/Tokyo
     container_name: ${APP_NAME}_web
     tty: true
     volumes:
@@ -21,6 +23,7 @@ services:
       #context: ./docker/mysql
       #dockerfile: Dockerfile
     environment:
+      - TZ=Asia/Tokyo
       - POSTGRES_DB=${APP_NAME}db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
