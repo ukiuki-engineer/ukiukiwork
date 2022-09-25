@@ -7,9 +7,10 @@ FROM php:8.1.10-apache-bullseye
 # Node.jsのインストール
 # マルチステージビルドを使用
 # node.jsのversionに注意
-# もしかしたら変更する必要があるかも
-COPY --from=node:10.22 /usr/local/bin /usr/local/bin
-COPY --from=node:10.22 /usr/local/lib /usr/local/lib
+COPY --from=node:14.20 /usr/local/bin /usr/local/bin
+COPY --from=node:14.20 /usr/local/lib /usr/local/lib
+# /optにyarn一式が入っている
+COPY --from=node:14.20 /opt /opt
 
 # RUNで指定したコマンドはイメージ作成時(=docker build時)に実行される
 RUN apt-get update && \
