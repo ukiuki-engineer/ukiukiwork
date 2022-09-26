@@ -24,13 +24,14 @@ services:
       #dockerfile: Dockerfile
     environment:
       - TZ=Asia/Tokyo
-      - POSTGRES_DB=${APP_NAME}db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       # 設定ファイル
       - ./postgres/initdb.d:/docker-entrypoint-initdb.d
       # データベースのデータ
       - ./postgres/data:/var/lib/postgresql/data
+      - ../sql:/root
     ports:
       - 15432:5432
