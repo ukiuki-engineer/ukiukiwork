@@ -14,14 +14,12 @@ services:
     working_dir: /var/www/${APP_NAME}
     ports:
       - 80:80
-      # - 8000:8000
+      - 3000:3000
+      - 8000:8000
 
   db:
     container_name: ${APP_NAME}_postgres
     image: postgres:12.3
-    #build:
-      #context: ./docker/mysql
-      #dockerfile: Dockerfile
     environment:
       - TZ=Asia/Tokyo
       - POSTGRES_DB=${POSTGRES_DB}
