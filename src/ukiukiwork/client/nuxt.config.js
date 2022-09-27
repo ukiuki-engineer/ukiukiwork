@@ -33,6 +33,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // axiosのリクエストにX-Requested-Withヘッダを追加するための設定
+    // '@/plugins/axios',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,6 +50,15 @@ export default {
   modules: [
     '@nuxtjs/axios',
   ],
+
+  axios: {
+    proxy: true
+  },
+
+  proxy: {
+    // '/api/': { target: 'http://192.168.10.102:3000', pathRewrite: {'^/api/': ''} },
+    '/api/': { target: 'http://192.168.10.102:3000', pathRewrite: {'^/api/': ''} },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
